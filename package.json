@@ -1,0 +1,40 @@
+{
+  "name": "react-forms-lite",
+  "version": "1.0.0",
+  "description": "Lite, minimal react form building via specs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server",
+    "prepublish": "babel ./src --out-dir ./lib --source-maps --presets es2015,react --plugins babel-plugin-add-module-exports"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stariqmi/react-forms-lite.git"
+  },
+  "keywords": [
+    "react",
+    "forms",
+    "lite",
+    "minimal"
+  ],
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "moment": "^2.13.0",
+    "react": "^15.1.0",
+    "react-datepicker": "^0.27.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.4.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "author": "Salman Tariq Mirza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stariqmi/react-forms-lite/issues"
+  },
+  "homepage": "https://github.com/stariqmi/react-forms-lite#readme"
+}
