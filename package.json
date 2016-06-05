@@ -2,7 +2,7 @@
   "name": "react-forms-lite",
   "version": "1.0.1",
   "description": "Lite, minimal React forms with specs",
-  "main": "index.js",
+  "main": "./lib/Forms.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
