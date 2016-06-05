@@ -31,11 +31,12 @@ class Input extends React.Component {
             this.setState({value: e.target.value});
         }
         var isValid = this.props.validate(val);
-        if (!isValid) {
-            this.setState({showErrorText: true});
-        }
         
         this.props.updateForm(this.props.id, val, isValid);
+    }
+    
+    showErrors() {
+        this.setState({showErrorText: true});
     }
     
     componentDidMount() {
@@ -46,13 +47,15 @@ class Input extends React.Component {
         let element;
         let type = (this.props.type === 'datepicker') ? 'text' : this.props.type;
         if (this.props.type === 'datepicker') {
-            element = <DatePicker 
+            element = <DatePicker
+                key="datepicker"
                 selected={this.state.startDate}
                 onChange={this.update}
                 className={this.props.className} />
         }
         else {
             element = <input
+                        key="input"
                         id={this.props.id}
                         type={type}
                         className={this.props.className}
@@ -62,7 +65,15 @@ class Input extends React.Component {
                     />
         }
         
-        return <div><label>{this.props.label}</label> {element}</div>;
+        let elements = [element];
+        if (this.state.showErrorText && !this.props.validate(this.state.value)) {
+            elements.push(<p key="error-text" className="error-text">{this.props.errorText}</p>);
+        }
+        
+        return <div>
+            <label>{this.props.label}</label> 
+            <div>{elements}</div>
+        </div>;
     }
 }
 

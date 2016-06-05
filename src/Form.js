@@ -15,7 +15,17 @@ class Form extends React.Component {
         this.state = {};
     }
     
+    displayErrors(){
+        let name = this.props.spec.name;
+        if (this.props.displayErrors) {
+            for (var id in this.state) {
+                this.refs[name + '.' + id].showErrors();
+            }
+        }
+    }
+    
     gatherValues() {
+        this.displayErrors();
         return this.state;
     }
     
@@ -33,7 +43,6 @@ class Form extends React.Component {
                     key={id}
                     {...this.props.spec.fields[i]} 
                     updateForm={this.update.bind(this)}
-                    displayErrors={this.props.displayErrors}
                 />
             );
         }

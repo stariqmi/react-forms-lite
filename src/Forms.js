@@ -32,7 +32,7 @@ class Forms extends React.Component {
             forms.push(
                 <Form 
                     ref={key} 
-                    key={key} 
+                    key={key}
                     spec={this.props.specs[key]} 
                     displayErrors={this.props.displayErrors}
                 />
