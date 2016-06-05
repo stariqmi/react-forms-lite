@@ -1,6 +1,6 @@
 {
   "name": "react-forms-lite",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Lite, minimal React forms with specs",
   "main": "./lib/Forms.js",
   "scripts": {
@@ -25,13 +25,13 @@
     "react-dom": "^15.1.0"
   },
   "devDependencies": {
-      "babel": "^6.5.2",
-      "babel-loader": "^6.2.4",
-      "babel-preset-es2015": "^6.9.0",
-      "babel-preset-react": "^6.5.0",
-      "react-router": "^2.4.1",
-      "webpack": "^1.13.1",
-      "webpack-dev-server": "^1.14.1"
+    "babel": "^6.5.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "react-router": "^2.4.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   },
   "author": "Salman Tariq Mirza",
   "license": "MIT",
