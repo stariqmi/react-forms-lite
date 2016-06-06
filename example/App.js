@@ -8,7 +8,15 @@ let specs = {
         name: 'mySpec',
         fields: {
             myInput: {id: 'my-input', className: 'my-input', label: 'Text Field'},
-            myDatePicker: {id: 'datepicker', type: 'datepicker', label: 'DatePicker'}
+            myDatePicker: {id: 'datepicker', type: 'datepicker', label: 'DatePicker'},
+            mySelect: {id: 'my-select', 
+                type: 'select', 
+                label: 'Select', 
+                options: [
+                    {label: '1', value: 1},
+                    {label: '2', value: 2}
+                ]
+            }
         }
     }
 };

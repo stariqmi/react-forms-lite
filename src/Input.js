@@ -2,7 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import DatePicker from 'react-datepicker';
-import moment from 'moment';
+
+import MyDatePicker from './MyDatePicker.js';
 
 class Input extends React.Component {
     constructor(props) {
@@ -12,24 +13,13 @@ class Input extends React.Component {
             showErrorText: false
         };
         
-        if (this.props.type === 'datepicker') {
-            this.state.startDate = moment();
-            this.state.value = moment().format('YYYY/MM/DD');
-        }
-        
         this.update = this.update.bind(this);
     }
     
     update(e) {
         let val;
-        if (this.props.type === 'datepicker') {
-            val = e.format('YYYY/MM/DD')
-            this.setState({startDate: e, value: val});
-        }
-        else {
-            val = e.target.value;
-            this.setState({value: e.target.value});
-        }
+        val = e.target.value;
+        this.setState({value: e.target.value});
         var isValid = this.props.validate(val);
         
         this.props.updateForm(this.props.id, val, isValid);
@@ -40,29 +30,42 @@ class Input extends React.Component {
     }
     
     componentDidMount() {
-        this.props.updateForm(this.props.id, this.state.value, this.props.validate(this.state.value));
+        let isValid = this.props.validate(this.state.value);
+        this.props.updateForm(this.props.id, this.state.value, isValid);
     }
     
     render() {
         let element;
-        let type = (this.props.type === 'datepicker') ? 'text' : this.props.type;
-        if (this.props.type === 'datepicker') {
-            element = <DatePicker
-                key="datepicker"
-                selected={this.state.startDate}
-                onChange={this.update}
-                className={this.props.className} />
-        }
-        else {
-            element = <input
-                        key="input"
-                        id={this.props.id}
-                        type={type}
-                        className={this.props.className}
-                        placeholder={this.props.placeholder}
-                        onChange={this.update}
-                        value={this.state.value}
-                    />
+        let type = this.props.type;
+        
+        switch (type) {
+            case 'datepicker':
+                element = <MyDatePicker
+                    key={this.props.id}
+                    update={this.update}
+                    className={this.props.className} /> 
+                break;
+            case 'select':
+                let options = [];
+                for (var i in this.props.options) {
+                    let option = this.props.options[i];
+                    options.push(<option key={option.value} value={option.value}>{option.label}</option>);
+                }
+                element = <select key={this.props.id} value={''} onChange={this.update}>{options}</select>
+                break;
+            case 'textarea':
+                element = <textarea key={this.props.id} onChange={this.update} />
+                break;
+            default:
+                element = <input
+                            key="input"
+                            id={this.props.id}
+                            type={type}
+                            className={this.props.className}
+                            placeholder={this.props.placeholder}
+                            onChange={this.update}
+                            value={this.state.value}
+                        />
         }
         
         let elements = [element];
@@ -70,9 +73,9 @@ class Input extends React.Component {
             elements.push(<p key="error-text" className="error-text">{this.props.errorText}</p>);
         }
         
-        return <div>
+        return <div className="field">
             <label>{this.props.label}</label> 
-            <div>{elements}</div>
+            <div className="input-wrapper">{elements}</div>
         </div>;
     }
 }
@@ -85,7 +88,8 @@ Input.propTypes = {
     required: React.PropTypes.bool,
     placeholder: React.PropTypes.string,
     validate: React.PropTypes.func,
-    errorText: React.PropTypes.string
+    errorText: React.PropTypes.string,
+    options: React.PropTypes.array
 }
 
 Input.defaultProps = {
