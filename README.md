@@ -54,7 +54,7 @@ Input.defaultProps = {
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Forms from './lib/Forms.js';
+import Forms from 'react-forms-lite';
 
 let specs = {
     mySpec: {
