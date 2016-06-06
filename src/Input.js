@@ -73,7 +73,7 @@ class Input extends React.Component {
             elements.push(<p key="error-text" className="error-text">{this.props.errorText}</p>);
         }
         
-        return <div className="field">
+        return <div className="rlf-field-container">
             <label>{this.props.label}</label> 
             <div className="input-wrapper">{elements}</div>
         </div>;
