@@ -35,7 +35,6 @@ class Forms extends React.Component {
                     key={key}
                     spec={this.props.specs[key]}
                     className={this.props.formContainerClass}
-                    displayErrors={this.props.displayErrors}
                 />
             );
         }

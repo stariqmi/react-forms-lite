@@ -32,7 +32,7 @@ class App extends React.Component {
     
     render() {
         return <div>
-                <Forms specs={specs} onSubmit={this.onFormsSubmit} displayErrors={true}/>
+                <Forms specs={specs} onSubmit={this.onFormsSubmit} />
             </div>
     }
 }

@@ -11,7 +11,6 @@
 **Forms** properties:
  - *specs*: Object, required
  - *onSubmit*: Function(values), required
- - *displayErrors*: Boolean, default false
 
 **onSubmit** is a function attribute of the Component that owns **Forms**. This function is called when the submit button is clicked. The **values** argument is structured like the **specs** such that each **spec** has it's values based on the **id**(s) passed along with an additional **isValid** property.
  
@@ -31,8 +30,7 @@ Input.propTypes = {
     type: React.PropTypes.string,
     required: React.PropTypes.bool,
     placeholder: React.PropTypes.string,
-    validate: React.PropTypes.func,
-    errorText: React.PropTypes.string
+    validate: React.PropTypes.func
 }
 
 // Default values for some properties
@@ -44,8 +42,7 @@ Input.defaultProps = {
     validate: function(prop) {
         // Default: not empty string
         return prop !== '';
-    },
-    errorText: 'This field cannot be empty.'
+    }
 }
 ```
 
@@ -82,6 +79,9 @@ Forms.defaultProps = {
 }
 ```
 
+### Validation Errors
+Currently there is no support for displaying validation errors as part of **react-forms-lite**. The onSubmit callback will have the **isValid** property that you can use to render validation errors.
+
 ### A minimal example
 ```javascript
 import React from 'react';
@@ -110,12 +110,15 @@ class App extends React.Component {
     
     render() {
         return <div>
-                <Forms specs={specs} onSubmit={this.onFormsSubmit} displayErrors={true}/>
+                <Forms specs={specs} onSubmit={this.onFormsSubmit} />
             </div>
     }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
+
+**Note: This Component is the result of learning React and using it in a project. It will hopefully significantly improve with
+the use of Redux/React-redux/Immutable.js as I improve my knowledge of the React ecosystem.**
 
 

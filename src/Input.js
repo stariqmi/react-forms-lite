@@ -9,8 +9,7 @@ class Input extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '',
-            showErrorText: false
+            value: ''
         };
         
         this.update = this.update.bind(this);
@@ -23,10 +22,6 @@ class Input extends React.Component {
         var isValid = this.props.validate(val);
         
         this.props.updateForm(this.props.id, val, isValid);
-    }
-    
-    showErrors() {
-        this.setState({showErrorText: true});
     }
     
     componentDidMount() {
@@ -88,7 +83,6 @@ Input.propTypes = {
     required: React.PropTypes.bool,
     placeholder: React.PropTypes.string,
     validate: React.PropTypes.func,
-    errorText: React.PropTypes.string,
     options: React.PropTypes.array
 }
 
@@ -100,8 +94,7 @@ Input.defaultProps = {
     validate: function(prop) {
         // Default: not empty string
         return prop !== '';
-    },
-    errorText: 'This field cannot be empty.'
+    }
 }
 
 export default Input
