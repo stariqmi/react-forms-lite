@@ -29,10 +29,13 @@ class MyDatePicker extends React.Component {
     }
     
     render() {
-        return <DatePicker
-            selected={this.state.startDate}
-            onChange={this.update.bind(this)}
-            className={this.props.className} />
+        return <div>
+                <link rel="stylesheet" type="text/css" href="../node_modules/react-datepicker/dist/react-datepicker.min.css" />
+                <DatePicker
+                selected={this.state.startDate}
+                onChange={this.update.bind(this)}
+                className={this.props.className} />
+            </div>
     }
 }
 
