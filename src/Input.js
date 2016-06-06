@@ -51,7 +51,12 @@ class Input extends React.Component {
                     let option = this.props.options[i];
                     options.push(<option key={option.value} value={option.value}>{option.label}</option>);
                 }
-                element = <select key={this.props.id} value={''} onChange={this.update}>{options}</select>
+                element = <select className={this.props.className} 
+                        key={this.props.id} 
+                        value={''} 
+                        onChange={this.update}>
+                            {options}
+                        </select>
                 break;
             case 'textarea':
                 element = <textarea key={this.props.id} onChange={this.update} />
@@ -73,7 +78,7 @@ class Input extends React.Component {
             elements.push(<p key="error-text" className="error-text">{this.props.errorText}</p>);
         }
         
-        return <div className="rlf-field-container">
+        return <div className="rfl-field-container">
             <label>{this.props.label}</label> 
             <div className="input-wrapper">{elements}</div>
         </div>;
