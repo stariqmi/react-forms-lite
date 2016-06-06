@@ -45,7 +45,7 @@ class Form extends React.Component {
                 />
             );
         }
-        return <div>
+        return <div className="rfl-form-container">
                 {inputs}
             </div>
     }

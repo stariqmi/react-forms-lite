@@ -39,7 +39,7 @@ class Forms extends React.Component {
             );
         }
         
-        return <div>
+        return <div className="rfl-forms-container">
                 <link rel="stylesheet" type="text/css" href="../node_modules/react-datepicker/dist/react-datepicker.min.css" />
                 {forms}
                 <button onClick={this.submitClick.bind(this)}>Submit</button>
