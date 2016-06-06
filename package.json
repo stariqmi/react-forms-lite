@@ -1,6 +1,6 @@
 {
   "name": "react-forms-lite",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Lite, minimal React forms with specs",
   "main": "./lib/Forms.js",
   "scripts": {
