@@ -49,6 +49,39 @@ Input.defaultProps = {
 }
 ```
 
+### Styling Utilities
+The HTML structure is similar to the following:
+
+```HTML
+<!-- Forms Component -->
+<div class="rfl-forms-container">
+    <!-- Form Component -->
+    <div class="rfl-form-container">
+        <!-- Input Component -->
+        <div class="rfl-field-container">
+            <div class="rfl-label-container"><label>{this.props.label}</label></div>
+            <div class="rfl-input-container">
+                <!-- Input according to spec -->
+                <input type="text" />
+            </div>
+        </div>
+    </div>
+    <div class="rfl-submit-btn-container">
+        <button>Submit</button>
+    </div>
+</div>
+```
+
+Hence the above classes can be used for styling. However the following classes are actually default properties on the Forms Component and can be changed by passing appropriate properties:
+
+```javascript
+Forms.defaultProps = {
+    containerClass: 'rfl-forms-container',
+    submitBtnContainerClass: 'rfl-submit-btn-container',
+    formContainerClass: 'rfl-form-container'
+}
+```
+
 ### A minimal example
 ```javascript
 import React from 'react';

@@ -45,14 +45,15 @@ class Form extends React.Component {
                 />
             );
         }
-        return <div className="rfl-form-container">
+        return <div className={this.props.className}>
                 {inputs}
             </div>
     }
 }
 
 Form.propTypes = {
-    spec: React.PropTypes.object.isRequired
+    spec: React.PropTypes.object.isRequired,
+    className: React.PropTypes.string
 }
 
 export default Form

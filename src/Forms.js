@@ -33,23 +33,35 @@ class Forms extends React.Component {
                 <Form 
                     ref={key} 
                     key={key}
-                    spec={this.props.specs[key]} 
+                    spec={this.props.specs[key]}
+                    className={this.props.formContainerClass}
                     displayErrors={this.props.displayErrors}
                 />
             );
         }
         
-        return <div className="rfl-forms-container">
+        return <div className={this.props.containerClass}>
                 <link rel="stylesheet" type="text/css" href="../node_modules/react-datepicker/dist/react-datepicker.min.css" />
                 {forms}
-                <button onClick={this.submitClick.bind(this)}>Submit</button>
+                <div className={this.props.submitBtnContainerClass}>
+                    <button onClick={this.submitClick.bind(this)}>Submit</button>
+                </div>
             </div>
     }
 }
 
 Forms.propTypes = {
     specs: React.PropTypes.object.isRequired,
+    containerClass: React.PropTypes.string,
+    submitBtnContainerClass: React.PropTypes.string,
+    formContainerClass: React.PropTypes.string,
     onSubmit: React.PropTypes.func.isRequired
+}
+
+Forms.defaultProps = {
+    containerClass: 'rfl-forms-container',
+    submitBtnContainerClass: 'rfl-submit-btn-container',
+    formContainerClass: 'rfl-form-container'
 }
 
 export default Forms

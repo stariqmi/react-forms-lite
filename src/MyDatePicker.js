@@ -29,7 +29,7 @@ class MyDatePicker extends React.Component {
     }
     
     render() {
-        return <div>
+        return <div id={this.props.id}>
                 <link rel="stylesheet" type="text/css" href="../node_modules/react-datepicker/dist/react-datepicker.min.css" />
                 <DatePicker
                 selected={this.state.startDate}

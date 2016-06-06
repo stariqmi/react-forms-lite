@@ -41,7 +41,7 @@ class Input extends React.Component {
         switch (type) {
             case 'datepicker':
                 element = <MyDatePicker
-                    key={this.props.id}
+                    id={this.props.id}
                     update={this.update}
                     className={this.props.className} /> 
                 break;
@@ -52,14 +52,14 @@ class Input extends React.Component {
                     options.push(<option key={option.value} value={option.value}>{option.label}</option>);
                 }
                 element = <select className={this.props.className} 
-                        key={this.props.id} 
+                        id={this.props.id} 
                         value={''} 
                         onChange={this.update}>
                             {options}
                         </select>
                 break;
             case 'textarea':
-                element = <textarea key={this.props.id} onChange={this.update} />
+                element = <textarea id={this.props.id} onChange={this.update} />
                 break;
             default:
                 element = <input
@@ -73,14 +73,9 @@ class Input extends React.Component {
                         />
         }
         
-        let elements = [element];
-        if (this.state.showErrorText && !this.props.validate(this.state.value)) {
-            elements.push(<p key="error-text" className="error-text">{this.props.errorText}</p>);
-        }
-        
         return <div className="rfl-field-container">
-            <label>{this.props.label}</label> 
-            <div className="input-wrapper">{elements}</div>
+            <div className="rfl-label-container"><label>{this.props.label}</label></div>
+            <div className="rfl-input-container">{element}</div>
         </div>;
     }
 }
