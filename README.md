@@ -24,13 +24,14 @@ Each *field* corresponds to an **Input**. The following code from the **Input** 
 ```javascript
 // All properties and their types
 Input.propTypes = {
-    id: React.PropTypes.string.isRequired, // REQUIRED
-    label: React.PropTypes.string.isRequired, // REQUIRED
+    id: React.PropTypes.string.isRequired,
+    label: React.PropTypes.string.isRequired,
     className: React.PropTypes.string,
-    type: React.PropTypes.string,
+    type: React.PropTypes.oneOf(['text','textarea','select','datepicker']),
     required: React.PropTypes.bool,
     placeholder: React.PropTypes.string,
-    validate: React.PropTypes.func
+    validate: React.PropTypes.func,
+    options: React.PropTypes.array
 }
 
 // Default values for some properties

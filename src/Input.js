@@ -56,6 +56,7 @@ class Input extends React.Component {
             case 'textarea':
                 element = <textarea id={this.props.id} onChange={this.update} />
                 break;
+            case 'text':
             default:
                 element = <input
                             key="input"
@@ -79,7 +80,7 @@ Input.propTypes = {
     id: React.PropTypes.string.isRequired,
     label: React.PropTypes.string.isRequired,
     className: React.PropTypes.string,
-    type: React.PropTypes.string,
+    type: React.PropTypes.oneOf(['text','textarea','select','datepicker']),
     required: React.PropTypes.bool,
     placeholder: React.PropTypes.string,
     validate: React.PropTypes.func,
